@@ -10,7 +10,6 @@ function App() {
     <Navbar />
     <Banner />
     <CoinTable />
-    <h1>Hello</h1>
     </>
   )
 }

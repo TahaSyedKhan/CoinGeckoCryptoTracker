@@ -3,8 +3,7 @@
 function CoinTable() {
 
     return (
-        <>
-        </>
+        <>Coin Table</>
     )
 }
 
