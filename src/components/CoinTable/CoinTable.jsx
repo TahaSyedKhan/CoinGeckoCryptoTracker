@@ -1,11 +1,14 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "react-query";
+import { CurrencyContext } from "../../context/CurrencyContext";
 
 
-function CoinTable({ currency }) {
+function CoinTable() {
 const [page, setPage] = useState(1);
+
+const { currency } = useContext(CurrencyContext);
 
 const { data, isLoading, isError, error } = useQuery(['coins', page, currency], () => fetchCoinData(page, currency), {
     // retry: 2,
@@ -26,7 +29,7 @@ if(isError) {
                 <div className="basis-[20%]">24h Change</div>
                 <div className="basis-[20%]">Market Cap</div>
             </div>
-            {currency}
+        
             <div className="flex flex-col w-[80vw] mx-auto">
                 {isLoading && <div>Loading...</div>}
                 {data && data.map((coin) => {

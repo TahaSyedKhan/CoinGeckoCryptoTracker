@@ -1,7 +1,6 @@
 import { useState } from "react"
-import Banner from "./components/Banner/Banner"
-import CoinTable from "./components/CoinTable/CoinTable"
-import Navbar from "./components/Navbar/Navbar"
+import Home from "./Pages/Home";
+import { CurrencyContext } from "./context/CurrencyContext";
 
 
 function App() {
@@ -9,10 +8,10 @@ function App() {
 const [currency, setCurrency] = useState('usd');
   return (
     <>
-    <Navbar setCurrency={setCurrency}/>
-    <Banner />
-    <CoinTable currency={currency}/>
-    </>
+        <CurrencyContext.Provider value={{ currency, setCurrency}}>
+            <Home />
+        </CurrencyContext.Provider>
+    </>       
   )
 }
 
