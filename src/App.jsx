@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Home from "./Pages/Home";
 import { CurrencyContext } from "./context/CurrencyContext";
+import Router from "./components/Router/Router";
 
 
 function App() {
@@ -9,7 +9,7 @@ const [currency, setCurrency] = useState('usd');
   return (
     <>
         <CurrencyContext.Provider value={{ currency, setCurrency}}>
-            <Home />
+            <Router />
         </CurrencyContext.Provider>
     </>       
   )

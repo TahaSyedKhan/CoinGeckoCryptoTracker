@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "react-query";
 import { CurrencyContext } from "../../context/CurrencyContext";
+import { useNavigate } from "react-router-dom";
 
 
 function CoinTable() {
@@ -21,9 +22,15 @@ if(isError) {
     return <div>Error: {error.message}</div>
 }
 
+const Navigate = useNavigate();
+
+function handleCoinClick(id) {
+    Navigate(`/details/${id}`)
+}
+
     return (
         <div className="my-5 flex flex-col items-center justify-center gap-5 w-[80vw] mx-auto">
-            <div className="w-full bg-yellow-400 text-black flex py-4 px-2 font-semibold items-center">
+            <div className="w-full bg-yellow-400 text-black flex py-4 px-2 font-semibold items-center ">
                 <div className="basis-[35%]">Coin</div>
                 <div className="basis-[25%]">Price</div>
                 <div className="basis-[20%]">24h Change</div>
@@ -34,7 +41,7 @@ if(isError) {
                 {isLoading && <div>Loading...</div>}
                 {data && data.map((coin) => {
                     return (
-                        <div key={coin.id} className="w-full bg-transparent text-white flex py-4 px-2 font-sem' items-center justify-between">
+                        <div onClick={() => handleCoinClick(coin.id)} key={coin.id} className="w-full bg-transparent text-white flex py-4 px-2 font-sem' items-center justify-between cursor-pointer">
                             <div className="flex items-center justify-start gap-3 basis-[35%]">
                                 <div className="w-[5rem] h-[5rem]">
                                     <img src={coin.image} className="w-full h-full" />
