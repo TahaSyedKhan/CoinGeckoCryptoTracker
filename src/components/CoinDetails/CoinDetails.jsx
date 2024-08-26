@@ -4,6 +4,7 @@ import { fetchCoinDetails } from "../../services/fetchCoinDetails";
 import parse from 'html-react-parser';
 import { useContext } from "react";
 import { CurrencyContext } from "../../context/CurrencyContext";
+import PageLoader from "../PageLoader/PageLoader";
 function CoinDetails() {
 
 const {coinId} = useParams();
@@ -16,7 +17,7 @@ const {data, isLoading, isError, error} = useQuery(['coin', coinId], () => fetch
     })
     
     if(isLoading) {
-        return <div>Loading...</div>
+        return <PageLoader />
     }
     if(isError) {
         return <div>Error: {error.message}</div>

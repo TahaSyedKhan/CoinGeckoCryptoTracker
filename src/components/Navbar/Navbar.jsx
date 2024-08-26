@@ -8,6 +8,7 @@ const Navigate = useNavigate();
 function redirectHome() {
   Navigate("/")
 }
+
   const { setCurrency} = useContext(CurrencyContext);
     return (
         <div className="navbar bg-base-100">
