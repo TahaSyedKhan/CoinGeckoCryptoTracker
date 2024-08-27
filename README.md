@@ -1,9 +1,12 @@
 ## CoinGecko Crypto Price Tracker
 
-[Deployed URL]()
+[Deployed URL](https://coin-gecko-crypto-tracker-f5cf504jl-tahas-projects-10a28a81.vercel.app/)
+
 
 -Consuming CoinGecko free API
+
 -uses useQuery to fetch data
+
 -consumes different API to fetch coins, coin details & coin charts
 -also uses chartjs & chartjs-2
 -fallows the presentation container pattern
