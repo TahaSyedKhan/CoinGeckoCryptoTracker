@@ -1,24 +1,14 @@
-import { useQuery } from "react-query";
-import { fetchCoinDataByChart } from "../../services/fetchCoinDataByChart";
+
 import Alert from "../Alert/Alert";
-import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CurrencyContext } from "../../context/CurrencyContext";
 import PageLoader from "../PageLoader/PageLoader";
 import CoinInfo from "./CoinInfo";
+import useFetchCoinInfo from "../../hooks/useFetchCoinInfo";
 
 function CoinInfoContainer() {
 
 const {coinId} = useParams();
-const { currency } = useContext(CurrencyContext);
-
-    const [days, setDays] = useState(7);
-    const [interval, setInterval] = useState('daily');
-
-    const {data : historicData, isLoading, isError} = useQuery(['coin', coinId, currency, days, interval], () => fetchCoinDataByChart(coinId, currency, days, interval), {
-        cacheTime: 1000 * 60 * 2,
-        staleTime: 1000 * 60 * 2,
-    })
+const {isLoading, isError, historicData, days, interval, setInterval, setDays, currency} = useFetchCoinInfo(coinId)
 
     if(isLoading) {
         return <PageLoader />
