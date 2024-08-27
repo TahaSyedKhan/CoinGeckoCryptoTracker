@@ -8,7 +8,9 @@
 -uses useQuery to fetch data
 
 -consumes different API to fetch coins, coin details & coin charts
+
 -also uses chartjs & chartjs-2
+
 -fallows the presentation container pattern
 
 ![image](https://github.com/user-attachments/assets/363c7738-ff88-48c6-8b47-154b25ee6199)
