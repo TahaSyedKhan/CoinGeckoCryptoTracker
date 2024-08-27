@@ -5,6 +5,8 @@ import parse from 'html-react-parser';
 import { useContext } from "react";
 import { CurrencyContext } from "../../context/CurrencyContext";
 import PageLoader from "../PageLoader/PageLoader";
+import CoinInfoContainer from "../CoinInfo/CoinInfoContainer";
+
 function CoinDetails() {
 
 const {coinId} = useParams();
@@ -22,6 +24,7 @@ const {data, isLoading, isError, error} = useQuery(['coin', coinId], () => fetch
     if(isError) {
         return <div>Error: {error.message}</div>
     }
+    
     return (
         <div className="flex flex-col md:flex-row">
 
@@ -44,7 +47,7 @@ const {data, isLoading, isError, error} = useQuery(['coin', coinId], () => fetch
             </div>
             
             <div className="md:w-2/3 w-full p-6">
-                coin Information
+                <CoinInfoContainer />
             </div>
         </div>
     )
