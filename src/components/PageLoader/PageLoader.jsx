@@ -1,7 +1,8 @@
 import ContentLoader from "react-content-loader";
 
 const MyLoader = () => (
-<ContentLoader
+    <div className="h-[100vh] flex justify-center items-start">
+    <ContentLoader
     height={140}
     speed={1}
     backgroundColor={'#333'}
@@ -13,6 +14,7 @@ const MyLoader = () => (
     <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
     <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
 </ContentLoader>
+    </div>
 )
 
 export default MyLoader;
